@@ -1,0 +1,23 @@
+import { Link } from 'react-router-dom'
+const BlogList = ({ blogs }) => {
+  return blogs.length ? (
+    <div className="blog-list">
+      {blogs.map(blog => {
+        return (
+          
+          <div  className="blog-preview" key={blog.id}>
+          <Link to={`/blogs/${blog.id}`}>
+            <h2>{blog.title}</h2>
+            <p>Written by {blog.author}</p>
+            </Link>
+          </div>
+         
+        );
+      })}
+    </div>
+  ) : (
+    <p>You currently do no have any post</p>
+  );
+};
+
+export default BlogList;
